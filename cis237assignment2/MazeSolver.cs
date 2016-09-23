@@ -20,6 +20,8 @@ namespace cis237assignment2
         char[,] maze;
         int xStart;
         int yStart;
+        char[,] lastPosition;   //used to keep track of the place the program was.
+        char[,] currentPosition; //used to keep track of the current location
 
         /// <summary>
         /// Default Constuctor to setup a new maze solver.
@@ -41,6 +43,10 @@ namespace cis237assignment2
             this.maze = maze;
             this.xStart = xStart;
             this.yStart = yStart;
+
+
+
+
 
             //Do work needed to use mazeTraversal recursive call and solve the maze.
         }
