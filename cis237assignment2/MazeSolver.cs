@@ -44,6 +44,12 @@ namespace cis237assignment2
             this.xStart = xStart;
             this.yStart = yStart;
 
+            if(currentPosition[]==',')
+            {
+                lastPosition[]= "X";
+                Console.Write(maze);
+            }
+
 
 
 
