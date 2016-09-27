@@ -20,8 +20,9 @@ namespace cis237assignment2
         char[,] maze;
         int xStart;
         int yStart;
-        char[,] lastPosition;   //used to keep track of the place the program was.
+        char[,] lastPosition;    //used to keep track of the place the program was.
         char[,] currentPosition; //used to keep track of the current location
+
 
         /// <summary>
         /// Default Constuctor to setup a new maze solver.
@@ -46,18 +47,17 @@ namespace cis237assignment2
 
             if(currentPosition[]==',')
             {
-                lastPosition[]= "X";
+                lastPosition[,]= "X";
                 Console.Write(maze);
             }
-
-
-
-
-
+            else
+            {
+                mazeTraversal();
+                MazeSolver(maze, lastPosition);
+                Console.Write(maze);
+            }
             //Do work needed to use mazeTraversal recursive call and solve the maze.
         }
-
-
         /// <summary>
         /// This should be the recursive method that gets called to solve the maze.
         /// Feel free to change the return type if you like, or pass in parameters that you might need.
@@ -66,6 +66,28 @@ namespace cis237assignment2
         private void mazeTraversal()
         {
             //Implement maze traversal recursive call
+            if(currentPosition[x+1,y]!="#")
+            {   //move right
+                currentPosition[,]=currentPosition[x+1,y];
+            }
+            if(currentPosition[x,y+1]!="#")
+            {   //move up
+                currentPosition[,]=currentPosition[x,y+1];
+            }
+            if(currentPosition[x-1,y]!="#")
+            {   //move left
+                currentPosition[,]=currentPosition[x-1,y];
+            }
+            if(currentPosition[x,y-1]!="#")
+            {   //move down
+                currentPosition[,]=currentPosition[x,y-1];
+            }
+            else
+            {   //remove and use as a return statement
+                //go back, mark spot with "o"
+                currentPosition[,]="O";
+
+            }
         }
     }
 }
