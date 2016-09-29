@@ -23,6 +23,9 @@ namespace cis237assignment2
         char[,] lastPosition;    //used to keep track of the place the program was.
         char[,] currentPosition; //used to keep track of the current location
 
+        int currentX;
+        int currentY;
+
 
         /// <summary>
         /// Default Constuctor to setup a new maze solver.
@@ -45,7 +48,7 @@ namespace cis237assignment2
             this.xStart = xStart;
             this.yStart = yStart;
 
-            if(currentPosition[]==',')
+            if(currentPosition[currentX, currentY] == ',')
             {
                 lastPosition[,]= "X";
                 Console.Write(maze);
@@ -66,26 +69,26 @@ namespace cis237assignment2
         private void mazeTraversal()
         {
             //Implement maze traversal recursive call
-            if(currentPosition[x+1,y]!="#")
+            if(currentPosition[currentX + 1, currentY] !="#")
             {   //move right
-                currentPosition[,]=currentPosition[x+1,y];
+                currentPosition[currentX,currentY]=currentPosition[currentX+1,currentY];
             }
-            if(currentPosition[x,y+1]!="#")
+            if(currentPosition[currentX, currentY + 1]!="#")
             {   //move up
-                currentPosition[,]=currentPosition[x,y+1];
+                currentPosition[currentX, currentY] =currentPosition[currentX, currentY + 1];
             }
-            if(currentPosition[x-1,y]!="#")
+            if(currentPosition[currentX - 1, currentY] !="#")
             {   //move left
-                currentPosition[,]=currentPosition[x-1,y];
+                currentPosition[currentX, currentY] =currentPosition[currentX-1, currentY];
             }
-            if(currentPosition[x,y-1]!="#")
+            if(currentPosition[currentX, currentY - 1]!="#")
             {   //move down
-                currentPosition[,]=currentPosition[x,y-1];
+                currentPosition[currentX, currentY] =currentPosition[currentX, currentY - 1];
             }
             else
             {   //remove and use as a return statement
                 //go back, mark spot with "o"
-                currentPosition[,]="O";
+                currentPosition[currentX, currentY] ="O";
 
             }
         }
