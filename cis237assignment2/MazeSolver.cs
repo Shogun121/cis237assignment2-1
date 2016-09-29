@@ -26,11 +26,7 @@ namespace cis237assignment2
         char[,] lastPosition;    //used to keep track of the place the program was.
         char[,] currentPosition; //used to keep track of the current location
 
-        int currentX;           //current location
-        int currentY;
-
-        int lastX;              //previous location
-        int lastY;
+        
 
 
         /// <summary>
@@ -62,7 +58,6 @@ namespace cis237assignment2
             else
             {
                 mazeTraversal();
-                SolveMaze(maze, lastPosition);
                 Console.Write(maze);
             }
             //Do work needed to use mazeTraversal recursive call and solve the maze.
@@ -72,24 +67,34 @@ namespace cis237assignment2
         /// Feel free to change the return type if you like, or pass in parameters that you might need.
         /// This is only a very small starting point.
         /// </summary>
-        private void mazeTraversal()
+        private void mazeTraversal(int CurrentX, int CurrentY, int LastX, int LastY)
         {
+            int currentX = CurrentX;            //current location
+            int currentY = CurrentY;
+
+            int lastX = LastX;              //previous location
+            int lastY = LastY;
+
             //Implement maze traversal recursive call
-            if(maze[currentX + 1, currentY] !="#")
+            if (maze[currentX + 1, currentY] ==".")
             {   //move right
                 currentPosition[currentX,currentY]=currentPosition[currentX+1,currentY];
+                mazeTraversal();
             }
-            if(maze[currentX, currentY + 1]!="#")
+            if(maze[currentX, currentY + 1]==".")
             {   //move up
                 currentPosition[currentX, currentY] =currentPosition[currentX, currentY + 1];
+                mazeTraversal();
             }
-            if(maze[currentX - 1, currentY] !="#")
+            if(maze[currentX - 1, currentY] ==".")
             {   //move left
                 currentPosition[currentX, currentY] =currentPosition[currentX-1, currentY];
+                mazeTraversal();
             }
-            if(maze[currentX, currentY - 1]!="#")
+            if(maze[currentX, currentY - 1]==".")
             {   //move down
                 currentPosition[currentX, currentY] =currentPosition[currentX, currentY - 1];
+                mazeTraversal();
             }
             else
             {   //remove and use as a return statement
