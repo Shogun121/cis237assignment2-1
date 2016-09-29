@@ -75,22 +75,26 @@ namespace cis237assignment2
             //Implement maze traversal recursive call
             if (maze[currentX + 1, currentY] ==".")
             {   //move right
-                currentPosition[currentX,currentY]=currentPosition[currentX+1,currentY];
+                currentX += 1;
+                currentY=currentY;
                 mazeTraversal(currentX, currentY, lastX, lastY);
             }
             if(maze[currentX, currentY + 1]==".")
             {   //move up
-                currentPosition[currentX, currentY] =currentPosition[currentX, currentY + 1];
+                currentX =CurrentX;
+                currentY += 1;
                 mazeTraversal(currentX, currentY, lastX, lastY);
             }
             if(maze[currentX - 1, currentY] ==".")
             {   //move left
-                currentPosition[currentX, currentY] =currentPosition[currentX-1, currentY];
+                currentX -= 1;
+                currentY = CurrentY;
                 mazeTraversal(currentX, currentY, lastX, lastY);
             }
             if(maze[currentX, currentY - 1]==".")
             {   //move down
-                currentPosition[currentX, currentY] =currentPosition[currentX, currentY - 1];
+                currentX = currentX;
+                currentY -= 1;
                 mazeTraversal(currentX,currentY,lastX,lastY);
             }
             else
@@ -101,4 +105,5 @@ namespace cis237assignment2
             }
         }
     }
-}
+}           //MAKE SURE TO ADD PRINT CALLS FOR EVERY MOVE
+            //ADD 'X's and 'O's IN MAZE TRAVERSAL
