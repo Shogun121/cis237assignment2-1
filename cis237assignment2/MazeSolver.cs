@@ -1,4 +1,7 @@
-﻿using System;
+﻿/**
+ * Robert Cooley
+ * */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +26,11 @@ namespace cis237assignment2
         char[,] lastPosition;    //used to keep track of the place the program was.
         char[,] currentPosition; //used to keep track of the current location
 
-        int currentX;
+        int currentX;           //current location
         int currentY;
+
+        int lastX;              //previous location
+        int lastY;
 
 
         /// <summary>
@@ -50,13 +56,13 @@ namespace cis237assignment2
 
             if(currentPosition[currentX, currentY] == ',')
             {
-                lastPosition[,]= "X";
+                maze[lastX,lastY]= "X";
                 Console.Write(maze);
             }
             else
             {
                 mazeTraversal();
-                MazeSolver(maze, lastPosition);
+                SolveMaze(maze, lastPosition);
                 Console.Write(maze);
             }
             //Do work needed to use mazeTraversal recursive call and solve the maze.
@@ -69,26 +75,26 @@ namespace cis237assignment2
         private void mazeTraversal()
         {
             //Implement maze traversal recursive call
-            if(currentPosition[currentX + 1, currentY] !="#")
+            if(maze[currentX + 1, currentY] !="#")
             {   //move right
                 currentPosition[currentX,currentY]=currentPosition[currentX+1,currentY];
             }
-            if(currentPosition[currentX, currentY + 1]!="#")
+            if(maze[currentX, currentY + 1]!="#")
             {   //move up
                 currentPosition[currentX, currentY] =currentPosition[currentX, currentY + 1];
             }
-            if(currentPosition[currentX - 1, currentY] !="#")
+            if(maze[currentX - 1, currentY] !="#")
             {   //move left
                 currentPosition[currentX, currentY] =currentPosition[currentX-1, currentY];
             }
-            if(currentPosition[currentX, currentY - 1]!="#")
+            if(maze[currentX, currentY - 1]!="#")
             {   //move down
                 currentPosition[currentX, currentY] =currentPosition[currentX, currentY - 1];
             }
             else
             {   //remove and use as a return statement
                 //go back, mark spot with "o"
-                currentPosition[currentX, currentY] ="O";
+                maze[currentX, currentY] ="O";
 
             }
         }
