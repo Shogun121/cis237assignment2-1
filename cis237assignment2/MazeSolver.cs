@@ -26,9 +26,6 @@ namespace cis237assignment2
         char[,] lastPosition;    //used to keep track of the place the program was.
         char[,] currentPosition; //used to keep track of the current location
 
-        
-
-
         /// <summary>
         /// Default Constuctor to setup a new maze solver.
         /// </summary>
@@ -68,33 +65,33 @@ namespace cis237assignment2
         /// This is only a very small starting point.
         /// </summary>
         private void mazeTraversal(int CurrentX, int CurrentY, int LastX, int LastY)
-        {
+        {   //method used to iterate through the maze using recursion.
             int currentX = CurrentX;            //current location
             int currentY = CurrentY;
 
-            int lastX = LastX;              //previous location
+            int lastX = LastX;                  //previous location
             int lastY = LastY;
-
+            currentPosition[currentX,currentY]
             //Implement maze traversal recursive call
             if (maze[currentX + 1, currentY] ==".")
             {   //move right
                 currentPosition[currentX,currentY]=currentPosition[currentX+1,currentY];
-                mazeTraversal();
+                mazeTraversal(currentX, currentY, lastX, lastY);
             }
             if(maze[currentX, currentY + 1]==".")
             {   //move up
                 currentPosition[currentX, currentY] =currentPosition[currentX, currentY + 1];
-                mazeTraversal();
+                mazeTraversal(currentX, currentY, lastX, lastY);
             }
             if(maze[currentX - 1, currentY] ==".")
             {   //move left
                 currentPosition[currentX, currentY] =currentPosition[currentX-1, currentY];
-                mazeTraversal();
+                mazeTraversal(currentX, currentY, lastX, lastY);
             }
             if(maze[currentX, currentY - 1]==".")
             {   //move down
                 currentPosition[currentX, currentY] =currentPosition[currentX, currentY - 1];
-                mazeTraversal();
+                mazeTraversal(currentX,currentY,lastX,lastY);
             }
             else
             {   //remove and use as a return statement
