@@ -58,7 +58,7 @@ namespace cis237assignment2
             mazeSolver.SolveMaze(maze1, X_START, Y_START);
 
             //Solve the transposed maze.
-            mazeSolver.SolveMaze(maze2, X_START, Y_START);
+            //mazeSolver.SolveMaze(maze2, X_START, Y_START);
 
         }
 
@@ -83,5 +83,6 @@ namespace cis237assignment2
             //Write code her to create a transposed maze.
             return new char[1, 1];
         }
+        
     }
 }
