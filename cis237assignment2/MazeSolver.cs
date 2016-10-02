@@ -44,10 +44,10 @@ namespace cis237assignment2
             this.maze = maze;
             this.xStart = xStart;
             this.yStart = yStart;
-
-            if(maze[xStart, yStart] == ',')
+            mazeTraversal(xStart, yStart);
+            if(maze[xStart, yStart] == ';')
             {
-                //maze[lastX,lastY]= "X";
+                Console.WriteLine("Done");
                 PrintMaze(maze);
             }
             else
@@ -125,8 +125,7 @@ namespace cis237assignment2
                 mazeTraversal(currentX, currentY);
             }
             else
-            {   //remove and use as a return statement
-                //go back, mark spot with "o"
+            {   //mark '0' when the maze must go back.
                 maze[currentX, currentY] ='O';
                 Console.WriteLine("Back");
                 PrintMaze(maze);
@@ -163,5 +162,4 @@ namespace cis237assignment2
             Console.WriteLine();
         }
     }
-}           //MAKE SURE TO ADD PRINT CALLS FOR EVERY MOVE
-            //ADD 'X's and 'O's IN MAZE TRAVERSAL
+}          

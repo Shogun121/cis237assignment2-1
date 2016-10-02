@@ -42,4 +42,6 @@ Don't forget that you must have a base case for your recursive method or you wil
 
 ## Outside Resources Used
 In class 1 for 'foreach' demonstration.
+https://www.khanacademy.org/math/linear-algebra/matrix-transformations/matrix-transpose/v/linear-algebra-transpose-of-a-matrix 
+	//for help with transpose.
 ## Known Problems, Issues, And/Or Errors in the Program
