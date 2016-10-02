@@ -48,12 +48,12 @@ namespace cis237assignment2
             if(maze[xStart, yStart] == ',')
             {
                 //maze[lastX,lastY]= "X";
-                Console.Write(maze);
+                PrintMaze(maze);
             }
             else
             {
                 mazeTraversal(xStart,yStart);
-                Console.Write(maze);
+                //PrintMaze(maze);
             }
             //Do work needed to use mazeTraversal recursive call and solve the maze.
         }
@@ -80,8 +80,9 @@ namespace cis237assignment2
                 currentX += 1;
 
                 //print maze after step has been taken before recursion calls again.
-                Console.Write(maze);
-
+                Console.WriteLine("Right");
+                PrintMaze(maze);
+                
                 mazeTraversal(currentX, currentY);
             }
             if(maze[currentX, currentY + 1]=='.')
@@ -92,7 +93,8 @@ namespace cis237assignment2
                 currentY += 1;
 
                 //print maze after step has been taken before recursion calls again.
-                Console.Write(maze);
+                Console.WriteLine("Up");
+                PrintMaze(maze);
 
                 mazeTraversal(currentX, currentY);
             }
@@ -104,7 +106,8 @@ namespace cis237assignment2
                 currentX -= 1;
 
                 //print maze after step has been taken before recursion calls again.
-                Console.Write(maze);
+                Console.WriteLine("Left");
+                PrintMaze(maze);
 
                 mazeTraversal(currentX, currentY);
             }
@@ -116,7 +119,8 @@ namespace cis237assignment2
                 currentY -= 1;
 
                 //print maze after step has been taken before recursion calls again.
-                Console.Write(maze);
+                Console.WriteLine("Down");
+                PrintMaze(maze);
 
                 mazeTraversal(currentX, currentY);
             }
@@ -124,17 +128,39 @@ namespace cis237assignment2
             {   //remove and use as a return statement
                 //go back, mark spot with "o"
                 maze[currentX, currentY] ='O';
-
+                Console.WriteLine("Back");
+                PrintMaze(maze);
             }
         }
+        /// <summary>
+        /// Method used to print the maze after each step so there is visible progress
+        /// </summary>
+        /// <param name="maze"></param>
         public void PrintMaze(char[,] maze)
-        {
+        {   //declare a local level variable to dump the maze into.
             this.maze = maze;
-            (foreach x in this.maze)
+
+            //counter variable.
+            int index = 0;
+
+            //loop to print the contents of the maze array to the terminal.
+            foreach (char x in this.maze)
             {
+                Console.Write(x);
+
+                //variable used to keep track of iteration through the loop.
+                index += 1;
+
+                //if  index divided by 12 has a remainder of 0 the terminal prints a new line.
+                if (index % 12 == 0)
+                {
+                    Console.WriteLine();
+                }
+                
 
             }
-
+            //line added for readability between all the print commands.
+            Console.WriteLine();
         }
     }
 }           //MAKE SURE TO ADD PRINT CALLS FOR EVERY MOVE
