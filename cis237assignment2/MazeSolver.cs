@@ -61,7 +61,12 @@ namespace cis237assignment2
         /// This is only a very small starting point.
         /// </summary>
         private void mazeTraversal(int CurrentX, int CurrentY)
-        {   //method used to iterate through the maze using recursion.
+        {   
+            //---------------------------------------------------
+            //Direction comments included for debugging and will be removed.
+            //---------------------------------------------------
+            
+            //method used to iterate through the maze using recursion.
             int currentX = CurrentX;            //current location
             int currentY = CurrentY;
    
@@ -78,6 +83,7 @@ namespace cis237assignment2
                 Console.WriteLine("Right");
                 PrintMaze(maze);
                 
+                //Make a recursive call to traverse the maze.
                 mazeTraversal(currentX, currentY);
             }
             if(maze[currentX, currentY + 1]=='.')
@@ -91,6 +97,7 @@ namespace cis237assignment2
                 Console.WriteLine("Up");
                 PrintMaze(maze);
 
+                //Make a recursive call to traverse the maze.
                 mazeTraversal(currentX, currentY);
             }
             if(maze[currentX - 1, currentY] =='.')
@@ -104,6 +111,7 @@ namespace cis237assignment2
                 Console.WriteLine("Left");
                 PrintMaze(maze);
 
+                //Make a recursive call to traverse the maze.
                 mazeTraversal(currentX, currentY);
             }
             if(maze[currentX, currentY - 1]=='.')
@@ -117,11 +125,13 @@ namespace cis237assignment2
                 Console.WriteLine("Down");
                 PrintMaze(maze);
 
+                //Make a recursive call to traverse the maze.
                 mazeTraversal(currentX, currentY);
             }
             else
             {   //mark '0' when the maze must go back.
                 maze[currentX, currentY] ='O';
+
                 Console.WriteLine("Back");
                 PrintMaze(maze);
             }
