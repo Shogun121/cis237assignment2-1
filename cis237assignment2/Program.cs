@@ -60,7 +60,8 @@ namespace cis237assignment2
             mazeSolver.SolveMaze(maze1, X_START, Y_START);
 
             //Solve the transposed maze.
-            //mazeSolver.SolveMaze(maze2, X_START, Y_START);
+            Console.WriteLine("Second Maze");
+            mazeSolver.SolveMaze(maze2, X_START, Y_START);
 
         }
 
@@ -82,20 +83,36 @@ namespace cis237assignment2
         /// <returns>transposedMaze</returns>
         static char[,] transposeMaze(char[,] mazeToTranspose)
         {
-            char temp;
-            char temp2;
-            char[,] newMaze;
-            //return new char[1, 1];
-            foreach(char y in mazeToTranspose)
+            int rowCount = mazeToTranspose.GetLength(0);
+            int colCount = mazeToTranspose.GetLength(1);
+
+            char[,] transposed = new char[colCount, rowCount];
+
+            if(rowCount==colCount)
             {
-                temp = y;
-                foreach( char x in mazeToTranspose)
+                transposed = (char[,])mazeToTranspose.Clone();
+                for(int i=1;i<rowCount;i++)
                 {
-                    temp2 = x;
-                    newMaze[temp, temp2];
-                }
-                
+                    for(int j=0; j<i; j++)
+                    {
+                        char temp = transposed[i, j];
+                        transposed[i, j] = transposed[j, i];
+                        transposed[j,i] = temp;
+                    }
+                }            
             }
+            return transposed;
+            ////return new char[1, 1];
+            //foreach(char y in mazeToTranspose)
+            //{
+            //    foreach( char x in mazeToTranspose)
+            //    {   //switch the x and y value for all places in the array.
+            //        mazeToTranspose[x,y]=mazeToTranspose[y, x];
+                    
+            //    }
+                
+            //}
+            //return mazeToTranspose;
         }
         
     }

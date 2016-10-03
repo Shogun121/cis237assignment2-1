@@ -44,8 +44,7 @@ namespace cis237assignment2
             this.maze = maze;
             this.xStart = xStart;
             this.yStart = yStart;
-            mazeTraversal(xStart, yStart);
-            if(maze[xStart, yStart] == ';')
+            if(maze[xStart, yStart] == ',')
             {
                 Console.WriteLine("Done");
                 PrintMaze(maze);
@@ -53,7 +52,6 @@ namespace cis237assignment2
             else
             {
                 mazeTraversal(xStart,yStart);
-                //PrintMaze(maze);
             }
             //Do work needed to use mazeTraversal recursive call and solve the maze.
         }
@@ -66,9 +64,6 @@ namespace cis237assignment2
         {   //method used to iterate through the maze using recursion.
             int currentX = CurrentX;            //current location
             int currentY = CurrentY;
-
-            //int lastX = LastX;                  //previous location
-            //int lastY = LastY;
    
             //Implement maze traversal recursive call
             if (maze[currentX + 1, currentY] =='.')
