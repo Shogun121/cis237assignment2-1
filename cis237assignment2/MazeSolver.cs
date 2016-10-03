@@ -62,10 +62,6 @@ namespace cis237assignment2
         /// </summary>
         private void mazeTraversal(int CurrentX, int CurrentY)
         {   
-            //---------------------------------------------------
-            //Direction comments included for debugging and will be removed.
-            //---------------------------------------------------
-            
             //method used to iterate through the maze using recursion.
             int currentX = CurrentX;            //current location
             int currentY = CurrentY;
@@ -128,7 +124,6 @@ namespace cis237assignment2
             {   //mark '0' when the maze must go back.
                 maze[currentX, currentY] ='O';
 
-                Console.WriteLine("Back");
                 PrintMaze(maze);
             }
         }
@@ -156,8 +151,6 @@ namespace cis237assignment2
                 {
                     Console.WriteLine();
                 }
-                
-
             }
             //line added for readability between all the print commands.
             Console.WriteLine();

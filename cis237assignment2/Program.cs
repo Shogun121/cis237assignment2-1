@@ -54,7 +54,7 @@ namespace cis237assignment2
 
             /// <summary>
             /// Tell the instance to solve the first maze with the passed maze, and start coordinates.
-            /// </summary>
+            /// </summary> 
 
             mazeSolver.PrintMaze(maze1);
             mazeSolver.SolveMaze(maze1, X_START, Y_START);
@@ -114,7 +114,6 @@ namespace cis237assignment2
             }
             //return the transposed array.
             return transposed;
-        }
-        
+        }        
     }
 }
