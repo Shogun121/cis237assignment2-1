@@ -80,7 +80,6 @@ namespace cis237assignment2
                 currentX += 1;
 
                 //print maze after step has been taken before recursion calls again.
-                Console.WriteLine("Right");
                 PrintMaze(maze);
                 
                 //Make a recursive call to traverse the maze.
@@ -94,7 +93,6 @@ namespace cis237assignment2
                 currentY += 1;
 
                 //print maze after step has been taken before recursion calls again.
-                Console.WriteLine("Up");
                 PrintMaze(maze);
 
                 //Make a recursive call to traverse the maze.
@@ -108,7 +106,6 @@ namespace cis237assignment2
                 currentX -= 1;
 
                 //print maze after step has been taken before recursion calls again.
-                Console.WriteLine("Left");
                 PrintMaze(maze);
 
                 //Make a recursive call to traverse the maze.
@@ -122,13 +119,12 @@ namespace cis237assignment2
                 currentY -= 1;
 
                 //print maze after step has been taken before recursion calls again.
-                Console.WriteLine("Down");
                 PrintMaze(maze);
 
                 //Make a recursive call to traverse the maze.
                 mazeTraversal(currentX, currentY);
             }
-            else
+            if(maze[currentX, currentY]=='#')
             {   //mark '0' when the maze must go back.
                 maze[currentX, currentY] ='O';
 
