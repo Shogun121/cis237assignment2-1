@@ -83,36 +83,37 @@ namespace cis237assignment2
         /// <returns>transposedMaze</returns>
         static char[,] transposeMaze(char[,] mazeToTranspose)
         {
+            //declares two variables to store the width, and length of the incoming array.
             int rowCount = mazeToTranspose.GetLength(0);
             int colCount = mazeToTranspose.GetLength(1);
 
+            //an array is made using the row and column as bounds.
             char[,] transposed = new char[colCount, rowCount];
 
+            //assuming the the array is square....
             if(rowCount==colCount)
             {
+                //...transpose is a clone of the incoming maze.
                 transposed = (char[,])mazeToTranspose.Clone();
+
+                //i starts at 1 to iterate half the array.
+                //while the counter 'i' is less than the row bound...
                 for(int i=1;i<rowCount;i++)
                 {
+                    //...while the counter 'j' is less than i...
                     for(int j=0; j<i; j++)
                     {
+                        //...create the char var temp to hold the transposed coordinates.
                         char temp = transposed[i, j];
+
+                        //store the the transposed coordinates.
                         transposed[i, j] = transposed[j, i];
                         transposed[j,i] = temp;
                     }
                 }            
             }
+            //return the transposed array.
             return transposed;
-            ////return new char[1, 1];
-            //foreach(char y in mazeToTranspose)
-            //{
-            //    foreach( char x in mazeToTranspose)
-            //    {   //switch the x and y value for all places in the array.
-            //        mazeToTranspose[x,y]=mazeToTranspose[y, x];
-                    
-            //    }
-                
-            //}
-            //return mazeToTranspose;
         }
         
     }
