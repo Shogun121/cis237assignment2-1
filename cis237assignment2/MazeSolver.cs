@@ -42,9 +42,9 @@ namespace cis237assignment2
             //a new maze could be passed in to this solve method without having to create a new instance.
             //The variables are assigned so they can be used anywhere they are needed within this class. 
             this.maze = maze;
-            this.xStart = xStart;
-            this.yStart = yStart;
-            if(maze[xStart, yStart] == ',')
+            //this.xStart = xStart;
+            //this.yStart = yStart;
+            if (maze[xStart, yStart] == ',')
             {
                 Console.WriteLine("Done");
                 PrintMaze(maze);
@@ -63,66 +63,66 @@ namespace cis237assignment2
         private void mazeTraversal(int CurrentX, int CurrentY)
         {   
             //method used to iterate through the maze using recursion.
-            int currentX = CurrentX;            //current location
-            int currentY = CurrentY;
+            //int currentX = CurrentX;            //current location
+            //int currentY = CurrentY;
    
             //Implement maze traversal recursive call
-            if (maze[currentX + 1, currentY] =='.')
+            if (maze[CurrentX + 1, CurrentY] =='.')
             {   
                 //place 'X' at current location.
-                maze[currentX, currentY] = 'X';
+                maze[CurrentX, CurrentY] = 'X';
 
                 //move right
-                currentX += 1;
+                CurrentX += 1;
 
                 //print maze after step has been taken before recursion calls again.
                 PrintMaze(maze);
                 
                 //Make a recursive call to traverse the maze.
-                mazeTraversal(currentX, currentY);
+                mazeTraversal(CurrentX, CurrentY);
             }
-            if(maze[currentX, currentY + 1]=='.')
+            if(maze[CurrentX, CurrentY + 1]=='.')
             {   //place 'X' at current location.
-                maze[currentX, currentY] = 'X';
-                
+                maze[CurrentX, CurrentY] = 'X';
+
                 //move up
-                currentY += 1;
+                CurrentY += 1;
 
                 //print maze after step has been taken before recursion calls again.
                 PrintMaze(maze);
 
                 //Make a recursive call to traverse the maze.
-                mazeTraversal(currentX, currentY);
+                mazeTraversal(CurrentX, CurrentY);
             }
-            if(maze[currentX - 1, currentY] =='.')
+            if(maze[CurrentX - 1, CurrentY] =='.')
             {   //place 'X' at current location.
-                maze[currentX, currentY] = 'X';
-                
+                maze[CurrentX, CurrentY] = 'X';
+
                 //move left
-                currentX -= 1;
+                CurrentX -= 1;
 
                 //print maze after step has been taken before recursion calls again.
                 PrintMaze(maze);
 
                 //Make a recursive call to traverse the maze.
-                mazeTraversal(currentX, currentY);
+                mazeTraversal(CurrentX, CurrentY);
             }
-            if(maze[currentX, currentY - 1]=='.')
+            if(maze[CurrentX, CurrentY - 1]=='.')
             {   //place 'X' at current location.
-                maze[currentX, currentY] = 'X';
-                
+                maze[CurrentX, CurrentY] = 'X';
+
                 //move down
-                currentY -= 1;
+                CurrentY -= 1;
 
                 //print maze after step has been taken before recursion calls again.
                 PrintMaze(maze);
 
                 //Make a recursive call to traverse the maze.
-                mazeTraversal(currentX, currentY);
+                mazeTraversal(CurrentX, CurrentY);
             }
-            if(maze[currentX, currentY]=='#')
+            if(maze[CurrentX, CurrentY] =='#')
             {   //mark '0' when the maze must go back.
-                maze[currentX, currentY] ='O';
+                maze[CurrentX, CurrentY] ='O';
 
                 PrintMaze(maze);
             }
