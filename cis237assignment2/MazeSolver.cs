@@ -73,52 +73,52 @@ namespace cis237assignment2
                 maze[CurrentX, CurrentY] = 'X';
 
                 //move right
-                CurrentX += 1;
+                //CurrentX += 1;
 
                 //print maze after step has been taken before recursion calls again.
                 PrintMaze(maze);
                 
                 //Make a recursive call to traverse the maze.
-                mazeTraversal(CurrentX, CurrentY);
+                mazeTraversal(CurrentX+1, CurrentY);
             }
             if(maze[CurrentX, CurrentY + 1]=='.')
             {   //place 'X' at current location.
                 maze[CurrentX, CurrentY] = 'X';
 
                 //move up
-                CurrentY += 1;
+                //CurrentY += 1;
 
                 //print maze after step has been taken before recursion calls again.
                 PrintMaze(maze);
 
                 //Make a recursive call to traverse the maze.
-                mazeTraversal(CurrentX, CurrentY);
+                mazeTraversal(CurrentX, CurrentY+1);
             }
             if(maze[CurrentX - 1, CurrentY] =='.')
             {   //place 'X' at current location.
                 maze[CurrentX, CurrentY] = 'X';
 
                 //move left
-                CurrentX -= 1;
+                //CurrentX -= 1;
 
                 //print maze after step has been taken before recursion calls again.
                 PrintMaze(maze);
 
                 //Make a recursive call to traverse the maze.
-                mazeTraversal(CurrentX, CurrentY);
+                mazeTraversal(CurrentX-1, CurrentY);
             }
             if(maze[CurrentX, CurrentY - 1]=='.')
             {   //place 'X' at current location.
                 maze[CurrentX, CurrentY] = 'X';
 
                 //move down
-                CurrentY -= 1;
+                //CurrentY -= 1;
 
                 //print maze after step has been taken before recursion calls again.
                 PrintMaze(maze);
 
                 //Make a recursive call to traverse the maze.
-                mazeTraversal(CurrentX, CurrentY);
+                mazeTraversal(CurrentX, CurrentY-1);
             }
             if(maze[CurrentX, CurrentY] =='#')
             {   //mark '0' when the maze must go back.
