@@ -41,9 +41,10 @@ Don't forget that you must have a base case for your recursive method or you wil
 | **Total**           | **100**|
 
 ## Outside Resources Used
-In class 1 for 'foreach' demonstration.
-https://www.khanacademy.org/math/linear-algebra/matrix-transformations/matrix-transpose/v/linear-algebra-transpose-of-a-matrix 
+1)In class 1 for 'foreach' demonstration.
+2)https://www.khanacademy.org/math/linear-algebra/matrix-transformations/matrix-3)transpose/v/linear-algebra-transpose-of-a-matrix 
 	//for help with transpose.
 http://www.codeproject.com/Articles/793684/Transposing-the-rows-and-columns-of-array-CSharp	//for help with transposing.
 http://stackoverflow.com/questions/24812679/what-is-an-index-out-of-range-exception-and-how-do-i-fix-it	//index out of range help.
 ## Known Problems, Issues, And/Or Errors in the Program
+1)'O's are not printed, the first maze doesn't solve, and the second maze solves but the 	program throws an error when it finishes.
